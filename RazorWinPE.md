@@ -1,4 +1,4 @@
-	#Prepare for Windows PE for Puppet Razor
+#Prepare for Windows PE for Puppet Razor
 
 ##Prerequisites
 	*A Clean Microsoft Windows PC running Windows 7 or Higher
@@ -21,19 +21,22 @@ You need to download the ADK from the Microsoft website, if the following URL do
 http://www.microsoft.com/en-us/download/details.aspx?id=30652
 
 ##Create a working copy of winpe.wim
-cd \Program Files (x86)\Windows Kits\8.0\Assesment and Deployment Kit\Windows Preinstallation Environment\amd64\
+	
+	cd \Program Files (x86)\Windows Kits\8.0\Assesment and Deployment Kit\Windows Preinstallation Environment\amd64\
 
 ## Mount the WinPE Image to a temporary location
-dism /Mount-Wim /WimFile:c:\build-winpe\razor-winpe\winpe.wim /index:1 /MountDir:C:\build-winpe\offline
+	
+	dism /Mount-Wim /WimFile:c:\build-winpe\razor-winpe\winpe.wim /index:1 /MountDir:C:\build-winpe\offline
 
 
 ##Adding standard modules to the WinPE image
-cd \Program Files (x86)\Windows Kits\8.0\Assesment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\
 
-dism /Image:C:\build-winpe\offline /Add-Package:WinPE-WMI.cab
-dism /Image:C:\build-winpe\offline /Add-Package:WinPE-NetFX4.cab
-dism /Image:C:\build-winpe\offline /Add-Package:WinPE-Scripting.cab
-dism /Image:C:\build-winpe\offline /Add-Package:WinPE-PowerShell3.cab
+	cd \Program Files (x86)\Windows Kits\8.0\Assesment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\
+
+	dism /Image:C:\build-winpe\offline /Add-Package:WinPE-WMI.cab
+	dism /Image:C:\build-winpe\offline /Add-Package:WinPE-NetFX4.cab
+	dism /Image:C:\build-winpe\offline /Add-Package:WinPE-Scripting.cab
+	dism /Image:C:\build-winpe\offline /Add-Package:WinPE-PowerShell3.cab
 
 
 ##Create/Update the startup script
